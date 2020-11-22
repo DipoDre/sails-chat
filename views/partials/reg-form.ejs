@@ -1,0 +1,50 @@
+<% if(typeof error != 'undefined') { %>
+  <div class="ui error message">
+  <div class="header">
+    <%= error.title %></div>
+    <p><%= error.message %></p>
+  </div>
+<% } %>
+
+
+<form method="post" action="/user" class="ui form">
+  <div class="required field">
+    <label>Full Names</label>
+    <input type="text" name="name" placeholder="Enter Full Names" value="<%= typeof name != 'undefined' ? name : '' %>" required>
+  </div>
+  <div class="required field">
+    <label>Username</label>
+    <input type="text" name="username" placeholder="Enter Username" value="<%= typeof username != 'undefined' ? username : '' %>" required>
+  </div>
+  <div class="required field">
+    <label>Email</label>
+    <input type="email" name="email" placeholder="Enter Email" value="<%= typeof email != 'undefined' ? email : '' %>" required>
+  </div>
+  <div class="required field">
+    <label>Password</label>
+    <input type="password" name="password" id="password" placeholder="Create Password"  minlength="8" value="<%= typeof password != 'undefined' ? password : '' %>" required>
+  </div>
+  <div class="required field">
+    <label>Confirm Password</label>
+    <input type="password" name="password2"  id="password2" placeholder="Confirm Password"  minlength="8" value="<%= typeof password2 != 'undefined' ? password2 : '' %>" required>
+  </div>
+  <button class="ui teal button" type="submit" name="action" value="signup" onclick="return Validate()">Sign Up &amp; Login</button>
+  <p>Have an account? <a class="ui teal" href="/"> Login </a></p>
+</form>
+
+
+<script type="text/javascript">
+  function Validate() {
+      var password = document.getElementById("password").value;
+      var confirmPassword = document.getElementById("password2").value;
+      if (password.length < 8 || confirmPassword.length < 8){
+        alert("Passwords are less than 8 characters.");
+          return false;
+      } else if (password != confirmPassword) {
+          alert("Passwords do not match.");
+          return false;
+      }
+      return true;
+  }
+</script>
+
