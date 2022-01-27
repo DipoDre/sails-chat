@@ -9,9 +9,9 @@
 var cloudinary = require('cloudinary');
 
 cloudinary.config({
-  cloud_name: 'dwtdarey',
-  api_key: '168396691584195',
-  api_secret: 'KY_x2njap1Kz5Fj1skMEcn6wb80'
+  cloud_name: CLOUDINARY CLOUD NAME,
+  api_key: CLOUDINARY API KEY,
+  api_secret: CLOUDINARY API SECRET
 });
 
 
